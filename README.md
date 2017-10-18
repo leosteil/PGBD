@@ -14,10 +14,10 @@
 > **As partes que compõem uma receita devem ser devidamente separadas** <br>
 
 > O CRUD de receita deve tratar a receita como um todo <br>
-> Em um __banco orientado a documentos__, uma receita culinária é armazenada como um único documento <br>
+> Em um *banco orientado a documentos*, uma receita culinária é armazenada como um único documento <br>
 > **Onde os elementos são aninhados** <br>
 
-> Em um __banco relacional__, uma receita culinria é armazenada em registros de várias tabelas <br>
+> Em um *banco relacional*, uma receita culinria é armazenada em registros de várias tabelas <br>
 > **Relacionados por chave estrangeira** <br>
 
 ### Apresentação
