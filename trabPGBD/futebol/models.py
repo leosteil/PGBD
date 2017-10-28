@@ -6,7 +6,7 @@ class Club(models.Model):
 	class Meta:
             ordering = ('name',)
 
-	name = models.CharField(max_length = 100)
+	name = models.CharField(max_length = 100, unique=True)
 
 	def publish(self):
 		self.save()
