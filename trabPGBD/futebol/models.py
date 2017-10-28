@@ -3,6 +3,9 @@ from django.utils import timezone
 # Create your models here.
 
 class Club(models.Model):
+	class Meta:
+            ordering = ('name',)
+
 	name = models.CharField(max_length = 100)
 
 	def publish(self):
@@ -13,9 +16,9 @@ class Club(models.Model):
 
 class Jogador(models.Model):
 	PLAYER_POSITION = (
-		('goleiro','goleiro'), ('lateral','lateral'), ('zagueiro','zagueiro'),('meio-campo','meio-campo'),('atacante','atacante'), ('tecnico','tecnico')
+		('goleiro','Goleiro'), ('lateral','Lateral'), ('zagueiro','Zagueiro'),('meio-campo','Meio-campo'),('atacante','Atacante'), ('tecnico','Tecnico')
 	)
-	name_player = models.CharField(max_length = 50)
+	name_player = models.CharField(max_length = 50, verbose_name = 'Nome')
 	id_club = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='club_id',verbose_name='Clube')
 	position = models.CharField(
 		max_length = 15,
