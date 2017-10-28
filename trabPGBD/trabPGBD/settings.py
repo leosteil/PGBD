@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import db_setings
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -78,9 +79,9 @@ WSGI_APPLICATION = 'trabPGBD.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'trab',
-        'USER': 'root',
-        'PASSWORD': 'root',
+        'NAME': db_setings.DB_NAME,
+        'USER': db_setings.USER,
+        'PASSWORD': db_setings.PASSWORD,
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
