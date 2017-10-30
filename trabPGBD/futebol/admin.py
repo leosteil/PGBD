@@ -12,7 +12,7 @@ class AdminJogador(ModelAdmin):
 	search_fields = ('name_player',)
 
 class AdminJogo(ModelAdmin):
-	list_display = ('id_club_home','id_club_away','stadium','refere',)
+	list_display = ('id','id_club_home','id_club_away','stadium','refere',)
 	search_fields = ('refere',)
 
 admin.site.register(Club,AdminClub)

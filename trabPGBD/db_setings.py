@@ -1,3 +1,3 @@
-DB_NAME = 'trabPGBD'
+DB_NAME = 'trab'
 USER = 'root'
-PASSWORD = 'admin'
+PASSWORD = 'root'

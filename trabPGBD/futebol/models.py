@@ -18,7 +18,7 @@ class Jogador(models.Model):
 	PLAYER_POSITION = (
 		('goleiro','Goleiro'), ('lateral','Lateral'), ('zagueiro','Zagueiro'),('meio-campo','Meio-campo'),('atacante','Atacante'), ('tecnico','Tecnico')
 	)
-	name_player = models.CharField(max_length = 50, verbose_name = 'Nome')
+	name_player = models.CharField(max_length = 50, verbose_name = 'Nome do Jogador')
 	id_club = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='club_id',verbose_name='Clube')
 	position = models.CharField(
 		max_length = 15,
@@ -30,10 +30,13 @@ class Jogador(models.Model):
 		self.save()
 
 class Jogo(models.Model):
-	id_club_home = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='id_club_home',verbose_name='Local')
+	class Meta:
+		ordering = ('id',)
+		
+	id_club_home = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='id_club_home',verbose_name='Mandante')
 	id_club_away = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='id_club_away',verbose_name='Visitante')
-	stadium = models.CharField(max_length = 50)
-	refere = models.CharField(max_length = 30)
+	stadium = models.CharField(max_length = 50, verbose_name='Estádio')
+	refere = models.CharField(max_length = 30, verbose_name='Árbitro')
 
 	def publish(self):
 		self.save()
