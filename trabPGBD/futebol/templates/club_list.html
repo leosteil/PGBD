@@ -1,9 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Lista de Clubes</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block content %}
+      <h1 class="center">LISTA DE CLUBES</h1>
+       <table>
+        	<tr>
+            	<th>Clubes</th>
+            </tr>
+       {% for club in clubs %}
+            <tr>
+                <td>{{ club.name }}</td>
+            </tr>
+       {% empty %}
+                        <li>Sem itens na lista.</li>
+       {% endfor %}
+                </table>
+{% endblock content %}			
