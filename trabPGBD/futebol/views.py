@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from .models import Club
-from .forms import NewClubForm, NewPlayerForm, NewGameForm
+from .forms import NewClubForm, NewPlayerForm, NewGameForm, EditClubForm
 
 
 
@@ -44,3 +44,17 @@ def new_game(request):
 	else:
 		form = NewGameForm()
 	return render(request, 'new_game.html', {'form': form})
+
+def club_edit(request, idClub):
+      club = Club.objects.get(id = idClub)
+      if request.method == 'POST':
+            form = EditClubForm(request.POST or None, instance=club)
+            if form.is_valid():
+                  form.save()
+                  return redirect('club_list')
+      else:
+            form = EditClubForm(request.POST or None, instance=club)
+            context = {
+                  'form' : form
+            }
+            return render(request, 'club_edit.html', context)

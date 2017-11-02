@@ -2,7 +2,6 @@ from django import forms
 from .models import Club, Jogador, Jogo
 
 class NewClubForm(forms.ModelForm):
-
     class Meta:
         model = Club
         fields = ['name']
@@ -16,3 +15,8 @@ class NewGameForm(forms.ModelForm):
 	class Meta:
 		model = Jogo
 		fields = ['id_club_home','id_club_away','stadium','refere'] 
+
+class EditClubForm(forms.ModelForm):
+	class Meta:
+		model = Club
+		fields = ['name']

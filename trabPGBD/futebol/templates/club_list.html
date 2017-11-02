@@ -2,16 +2,21 @@
 
 {% block content %}
       <h1 class="center">LISTA DE CLUBES</h1>
-       <table>
-        	<tr>
-            	<th>Clubes</th>
-            </tr>
-       {% for club in clubs %}
-            <tr>
-                <td>{{ club.name }}</td>
-            </tr>
-       {% empty %}
-                        <li>Sem itens na lista.</li>
-       {% endfor %}
-                </table>
-{% endblock content %}			
+      <ul>
+      {% for club in clubs %}
+          <div class="row">
+                  <div class="container">
+                       <div class="col s12 blue-grey lighten-5 border_lighten">
+                             <div class="col s12 m12 padding_normal">
+                                    {{ club.name }}
+                                    <div id="icon" class="right">
+                                           <a href="{% url 'club_edit' club.id%}" class="tooltipped" data-position="right" data-delay="20" data-tooltip="Editar Dados"> <i class="material-icons">Editar</i></a>
+                                    </div>
+                             </div>
+                        </div>
+                  </div>
+            </div>
+      {% endfor %}
+      </ul>
+    
+{% endblock %}
