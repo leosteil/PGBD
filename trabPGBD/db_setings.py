@@ -1,3 +1,6 @@
-DB_NAME = 'trab'
+DB_NAME = 'trabPGBD'
 USER = 'root'
-PASSWORD = 'root'
+PASSWORD = 'admin'
+
+'''This flag will be used to manage the db that are in use'''
+DB_TYPE = 0

@@ -42,14 +42,6 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
 )
 
 ROOT_URLCONF = 'trabPGBD.urls'
@@ -82,11 +74,15 @@ DATABASES = {
         'NAME': db_setings.DB_NAME,
         'USER': db_setings.USER,
         'PASSWORD': db_setings.PASSWORD,
-        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'HOST': '127.0.0.1',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
-    }
+    },
+    'mongodb' : {
+      'ENGINE' : 'django_mongodb_engine',
+      'NAME' : 'pgbd'
+   }
 }
-
+    
 
 
 # Internationalization

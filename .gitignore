@@ -1,2 +1,7 @@
 VENV
-/trabPGBD/.pyc*
+venv
+venv2
+trabPGBD/.pyc*
+trabPGBD/db_setings.py
+trabPGBD/futebol/.pyc
+*.pyc 

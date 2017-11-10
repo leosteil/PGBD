@@ -1,11 +1,15 @@
+# -*- coding: utf-8 -*-
+
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from .models import Club
 from .forms import NewClubForm, NewPlayerForm, NewGameForm, EditClubForm
+import db_setings
 
 
 
 def home(request):
+	print(db_setings.DB_TYPE)
 	return render(request, 'home.html')
 
 def club_list(request):
@@ -24,11 +28,12 @@ def new_club(request):
 	return render(request, 'new_club.html', {'form': form})
 
 def new_player(request):
-
 	if request.method == 'POST':
 		form = NewPlayerForm(data=request.POST)
+		print(form)
 		if form.is_valid():
-			user = form.save()
+			player = form.save(commit=False)
+			player.save(using='mongodb')
 			return redirect('/')
 	else:
 		form = NewPlayerForm()
