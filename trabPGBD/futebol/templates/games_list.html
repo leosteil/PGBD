@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 align="center">Jogos</h3>
+                    <hr>
+                    <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Time Mandante</th>
+                                <th>Time Visitante</th>
+                                <th>Juiz</th>
+                                <th>Estadio</th>
+                                <tbody>
+		                            {% for jogo in jogos %}
+		                                <tr>
+		                                    <td>{{ jogo.timeA }}</td>
+		                                    <td>{{ jogo.timeB }}</td>
+		                                    <td>{{ jogo.juiz }}</td>
+		                                    <td>{{ jogo.estadio }}</td>
+		                                </tr>
+		                            {% endfor %}                                            
+		                        </tbody>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-2 col-md-offset-5" align="center">
+                    <a href="/main/"><input class="btn btn-warning btn-md btn-block" type="button" value="Voltar para o Menu"/></a>
+                </div>                
+            </div>
+        </div>  
+{% endblock %}

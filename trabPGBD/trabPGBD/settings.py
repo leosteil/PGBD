@@ -38,8 +38,13 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'futebol'
+    'futebol',
+    'django_mongodb_engine',
+    'djangotoolbox'
 )
+
+SITE_ID=u'deafbeefdeadbeef00000000'
+
 
 MIDDLEWARE_CLASSES = (
 )

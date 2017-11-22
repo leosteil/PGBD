@@ -4,41 +4,47 @@ from django.db import models
 from django.utils import timezone
 # Create your models here.
 
-class Club(models.Model):
-	class Meta:
-            ordering = ('name',)
+class Time(models.Model):
+	nome = models.CharField(max_length = 100, unique=True)
 
-	name = models.CharField(max_length = 100, unique=True)
+	class Meta:
+		ordering = ('nome'),
+		db_table = 'Time'
 
 	def publish(self):
 		self.save()
 
 	def __str__(self):
-		return (self.name)
+		return (self.nome)
 
 class Jogador(models.Model):
-	PLAYER_POSITION = (
+	POSICAO = (
 		('goleiro','Goleiro'), ('lateral','Lateral'), ('zagueiro','Zagueiro'),('meio-campo','Meio-campo'),('atacante','Atacante'), ('tecnico','Tecnico')
 	)
-	name_player = models.CharField(max_length = 50, verbose_name = 'Nome do Jogador')
-	id_club = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='club_id',verbose_name='Clube')
-	position = models.CharField(
+	nome = models.CharField(max_length = 50, verbose_name = 'Nome do Jogador')
+	jogador_time = models.ForeignKey(Time, on_delete=models.CASCADE, related_name='club_id',verbose_name='Time')
+	posicao = models.CharField(
 		max_length = 15,
-		choices = PLAYER_POSITION,
+		choices = POSICAO,
 		verbose_name = 'Posição',
 		)
+
+
+	class Meta:
+		db_table = 'Jogador'
 
 	def publish(self):
 		self.save()
 
-class Jogo(models.Model):
+class Jogo(models.Model):	
+	timeA = models.ForeignKey(Time, on_delete=models.CASCADE, related_name='mandante',verbose_name='Mandante')
+	timeB = models.ForeignKey(Time, on_delete=models.CASCADE, related_name='visitante',verbose_name='Visitante')
+	estadio = models.CharField(max_length = 50, verbose_name='Estádio')
+	juiz = models.CharField(max_length = 30, verbose_name='Árbitro')
+
 	class Meta:
-		ordering = ('id',)
-		
-	id_club_home = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='id_club_home',verbose_name='Mandante')
-	id_club_away = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='id_club_away',verbose_name='Visitante')
-	stadium = models.CharField(max_length = 50, verbose_name='Estádio')
-	refere = models.CharField(max_length = 30, verbose_name='Árbitro')
+		ordering = ('id'),
+		db_table = 'Jogo'
 
 	def publish(self):
 		self.save()

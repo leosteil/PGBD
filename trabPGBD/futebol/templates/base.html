@@ -16,19 +16,13 @@
               <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'new_club' %}">Novo Clube</a>
+              <a class="nav-link" href="{% url 'club_list' %}">Lista de Jogos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'club_list' %}">Lista de Clubes</a>
+              <a class="nav-link" href="{% url 'new_game' %}">Novo Jogo</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="{% url 'new_player' %}">Novo Jogador</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="{% url 'new_game' %}">Novo Jogo</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Disabled</a>
+              <a class="nav-link" href="{% url 'games_list' %}">Lista de jogos</a>
             </li>
           </ul>
         </div>
